@@ -9,7 +9,7 @@ import uuid
 import httpx
 from typing import List
 
-from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from .state import MarketingState
@@ -19,9 +19,10 @@ from ..brand_assets import get_brand_config, PLATFORM_COPY_STYLE
 
 # ── LLM 单例 ──────────────────────────────────────────────────────────────────
 def _get_llm():
-    return ChatAnthropic(
+    return ChatOpenAI(
         model=settings.LLM_MODEL,
-        api_key=settings.ANTHROPIC_API_KEY,
+        api_key=settings.OPENAI_API_KEY,
+        base_url=settings.OPENAI_BASE_URL,
         max_tokens=2048,
     )
 

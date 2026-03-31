@@ -5,10 +5,10 @@ load_dotenv()
 
 
 class Settings:
-    # LLM
-    ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
+    # LLM（OpenAI 兼容格式）
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
-    LLM_MODEL: str = os.getenv("LLM_MODEL", "claude-sonnet-4-6")
+    OPENAI_BASE_URL: str = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
+    LLM_MODEL: str = os.getenv("LLM_MODEL", "gpt-4o")
 
     # 图片生成后端: mock | dalle3 | comfyui
     IMAGE_BACKEND: str = os.getenv("IMAGE_BACKEND", "mock")
